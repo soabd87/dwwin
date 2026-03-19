@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card p-4">
+            <h2 class="fw-bold border-bottom pb-2 mb-4">كتابة مقال جديد</h2>
+            
+            <form action="{{ url_for('create') }}" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label fw-bold">عنوان المقال</label>
+                    <input type="text" class="form-control" id="title" name="title" required placeholder="أدخل عنواناً واضحاً...">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="content" class="form-label fw-bold">محتوى المقال</label>
+                    <textarea class="form-control" id="content" name="content" rows="10" required placeholder="اكتب محتوى مقالك هنا..."></textarea>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-mono me-md-2">إلغاء</a>
+                    <button type="submit" class="btn btn-mono">نشر المقال</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+            <h2 class="fw-bold m-0">لوحة التحكم</h2>
+            <a href="{{ url_for('create') }}" class="btn btn-mono">إضافة مقال جديد +</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="50%">عنوان المقال</th>
+                        <th width="25%">تاريخ النشر</th>
+                        <th width="20%">إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if posts %}
+                        {% for post in posts %}
+                        <tr>
+                            <td class="fw-bold">{{ post.id }}</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.date_posted.strftime('%Y-%m-%d') }}</td>
+                            <td>
+                                <a href="{{ url_for('post', post_id=post.id) }}" class="btn btn-outline-mono btn-sm">عرض</a>
+                                </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-4">لا توجد بيانات لعرضها.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
