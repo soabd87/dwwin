@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2 border-dark">
+            <h2 class="fw-bold m-0">تعديل المقال</h2>
+            <a href="{{ url_for('admin.dashboard') }}" class="btn btn-outline-dark rounded-0">العودة للوحة التحكم</a>
+        </div>
+
+        <form method="POST" action="{{ url_for('admin.edit_post', post_id=post.id) }}" class="border border-dark p-4 bg-white" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label fw-bold">عنوان المقال</label>
+                <input type="text" class="form-control rounded-0 border-dark" id="title" name="title" value="{{ post.title }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="category_id" class="form-label fw-bold">القسم</label>
+                <select class="form-select rounded-0 border-dark" id="category_id" name="category_id" required>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}" {% if post.category_id == category.id %}selected{% endif %}>
+                            {{ category.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label fw-bold">تغيير صورة الغلاف (اختياري)</label>
+                {% if post.image_filename %}
+                    <div class="mb-2">
+                        <img src="{{ url_for('static', filename='uploads/' + post.image_filename) }}" alt="Thumbnail" style="height: 60px; width: auto;" class="border border-dark object-fit-cover">
+                    </div>
+                {% endif %}
+                <input type="file" class="form-control rounded-0 border-dark" id="image" name="image" accept="image/*">
+            </div>
+            
+            <div class="mb-4">
+                <label for="content" class="form-label fw-bold">المحتوى</label>
+                <textarea class="form-control rounded-0 border-dark" id="content" name="content" rows="10" required>{{ post.content }}</textarea>
+            </div>
+            
+            <div class="d-grid">
+                <button type="submit" class="btn btn-dark rounded-0 py-2 fw-bold">حفظ التعديلات</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

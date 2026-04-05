@@ -10,6 +10,8 @@ __pycache__/
 *.sqlite
 *.db
 instance/
+static/uploads
+map.md
 
 # المتغيرات البيئية (إذا استخدمتها لاحقاً لحفظ كلمات المرور)
 .env

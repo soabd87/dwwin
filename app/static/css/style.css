@@ -1,0 +1,77 @@
+:root {
+    --mono-black: #000000;
+    --mono-dark-gray: #333333;
+    --mono-gray: #888888;
+    --mono-light-gray: #f8f9fa;
+    --mono-white: #ffffff;
+}
+body {
+    background-color: var(--mono-light-gray);
+    color: var(--mono-black);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Navbar Styling */
+.navbar {
+    background-color: var(--mono-black) !important;
+    border-bottom: 3px solid var(--mono-gray);
+}
+.navbar-brand, .nav-link {
+    color: var(--mono-white) !important;
+    letter-spacing: 1px;
+}
+.nav-link:hover {
+    color: var(--mono-gray) !important;
+}
+/* Monochrome Buttons */
+.btn-mono {
+    background-color: var(--mono-black);
+    color: var(--mono-white);
+    border: 1px solid var(--mono-black);
+    border-radius: 0; /* حواف حادة لتعزيز النمط المبسط */
+}
+.btn-mono:hover {
+    background-color: var(--mono-dark-gray);
+    color: var(--mono-white);
+}
+.btn-outline-mono {
+    background-color: transparent;
+    color: var(--mono-black);
+    border: 1px solid var(--mono-black);
+    border-radius: 0;
+}
+.btn-outline-mono:hover {
+    background-color: var(--mono-black);
+    color: var(--mono-white);
+}
+/* Cards & Forms */
+.card {
+    border: 1px solid var(--mono-gray);
+    border-radius: 0;
+    background-color: var(--mono-white);
+    box-shadow: none;
+}
+.form-control {
+    border-radius: 0;
+    border: 1px solid var(--mono-gray);
+}
+.form-control:focus {
+    border-color: var(--mono-black);
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+/* Tables */
+.table {
+    background-color: var(--mono-white);
+    color: var(--mono-black);
+}
+.table th {
+    background-color: var(--mono-dark-gray);
+    color: var(--mono-white);
+    border-color: var(--mono-black);
+}
+.table td {
+    border-color: var(--mono-gray);
+    vertical-align: middle;
+}
+hr {
+    border-color: var(--mono-gray);
+}
