@@ -45,10 +45,13 @@ dwwin/
         ├── index.html
         ├── admin/
         │   ├── create.html
+        │   ├── categories.html
         │   ├── dashboard.html
         │   └── edit.html      # تم إضافة قالب التعديل
         ├── auth/          # (مجلد فارغ جاهز لقوالب تسجيل الدخول)
+        │   └── login.html     
         └── posts/
+            ├── category.html
             └── post.html
 
 ## 3. Database Schema (Models)
